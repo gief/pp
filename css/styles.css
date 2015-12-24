@@ -1,0 +1,16 @@
+body {
+  background-color: #454c62;
+  font-size: 20px;
+}
+
+.pp svg {
+  float: left;
+  width: 768px;
+  height: 1080px;
+  background-color: #8c8c8c;
+}
+
+.sideright {
+  float: left;
+  background-color: #565960;
+}

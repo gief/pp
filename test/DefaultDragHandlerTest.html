@@ -1,0 +1,51 @@
+<html>
+  <head>
+	<title>Print & Play</title>
+    <link href="../css/styles.css" rel="stylesheet">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.min.js"></script>
+	<script src="../js/SVGReader.js"></script>
+	<script src="../js/DefaultDragHandler.js"></script>
+  </head>
+  <body>
+	<h1>Default Draghandler Tests</h1>
+	<div id="out"></div>
+	<div id="test"><svg></svg></div>
+<script type="text/javascript">
+
+var runTest = function() {
+
+	var out="";
+
+	var handler = new DefaultDragHandler();
+	// Test 1
+	// xy priority
+	out += "Test 1<br/>";
+	try
+	{
+		var arr = getGroupsWithIds("test");
+		var t1 = handler.compare(d3.select(arr[0][0]).node(), d3.select(arr[0][1]).node());
+
+	} catch (e) {
+		alert(e);
+	}
+	out += t1;
+
+	// Test 2
+	// borders
+
+	// Test 3
+	// collision
+
+	// Test 4 
+	// state
+
+	document.getElementById("out").innerHTML = out;
+};
+
+var testSVG = "https://rawgit.com/gief/cardboard/master/assets/plastic%20playing%20cards/Cards-Inkscape.svg";
+loadSVG(testSVG, d3.select("#test svg"), runTest);
+
+</script>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+<html>
+  <head>
+	<title>Print & Play</title>
+    <link href="../css/styles.css" rel="stylesheet">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.min.js"></script>
+	<script src="../js/SVGReader.js"></script>
+  </head>
+  <body>
+	<h1>SVG Reader Tests</h1>
+	<div id="out"></div>
+	<div id="test"><svg></svg></div>
+<script type="text/javascript">
+
+var runTest = function() {
+// Test 1
+// Find all top group elements wth ids
+  var out="";
+  
+  var arr = getGroupsWithIds("test");
+  //out = arr.length + ":length<br/>"; 
+  arr.each(function (d, i) {
+    if (i>5) return;
+	//alert(typeof(d.Keys()));
+	/*
+	d= d3.select(d[0]);
+  Object.keys(d).forEach(
+    function(d, i) {
+      alert(d + i);
+    });
+  */
+	out += this.id + " "+ i + "<br/>";
+  });
+  document.getElementById("out").innerHTML = out;
+};
+
+
+var testSVG = "https://rawgit.com/gief/cardboard/master/assets/plastic%20playing%20cards/Cards-Inkscape.svg";
+loadSVG(testSVG, d3.select("#test svg"), runTest);
+
+</script>
+  </body>
+</html>
