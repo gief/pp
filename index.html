@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<title>Print & Play</title>
+    <link href="css/styles.css" rel="stylesheet">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.min.js"></script>
+	<script src="js/SVGReader.js"></script>
+	<script src="js/SVGTransformer.js"></script>
+	<script src="../js/DefaultDragHandler.js"></script>
+	<script src="js/pp.js"></script>
+	<script src="js/main.js"></script>
+  </head>
+  <body>
+	<div class="pp" id="printandplay">
+	  <svg></svg>
+	</div>
+	<div class="sideright" ng-app="ppApp" ng-controller="srcReader">
+	  <div class="editor" id="editor">
+		<div>
+		  <textarea type="textarea" ng-model="source"></textarea>
+		  {{source}}
+		  {{deck}}
+		  <br/>
+		  {{output}}
+		</div>
+		<div id="menu">
+		  <h2>Menu</h2>
+		  <a href="JavaScript:demoLoad()" id="demoLoad">Demo load</a><br/>
+		  <a href="JavaScript:demoDrag()" id="demoDrag">Demo drag</a><br/>
+		  <a href="#" id="menuLoad">Load</a><br/>
+		  <a href="#" id="menuPlay">Play</a><br/>
+		  <a href="#" id="menuShare">Share</a><br/>
+		  <a href="#" id="menuNew">New</a><br/>
+		  <a href="#" id="menuTidy">Tidy</a><br/>
+		  <br/>
+		  <br/>
+		  <a href="test/SVGTransformerTest.html">SVGTransform Test</a><br/>
+		  <br/>
+		  <br/>
+		  <a href="test/SVGReaderTest.html">SVGReader Test</a><br/>
+		  <br/>
+		  <br/>
+		  <a href="test/DefaultDragHandlerTest.html">DefaultDragHandler Test</a><br/>
+		  <br/>
+		  <br/>
+		</div>
+	  </div>
+	</div>
+  </body>
+</html>		
