@@ -16,30 +16,8 @@ var loggle = function(str) {
 var drag = d3.behavior.drag()
 	.origin(Object)
 	.on("drag", function () {
-			dragHandler(this);
+			dh.dragHandler(this);
 		});
-
-var dragHandler = function (obj) {
-	var d3obj = d3.select(obj);
-	var tfStr = d3obj.attr("transform");
-	var newStr = translateAttr(tfStr, d3.event.dx / 2, d3.event.dy / 2);
-	d3obj.attr("transform", newStr);
-	
-	var objNode = d3obj.node();
-	var prevNode = objNode.previousSibling;
-	var nextNode = objNode.nextSibling;
-	var parentNode = objNode.parentNode;
-	
-	//Main
-	// optimize: we dont have to compare to bothe prev and nextSiblings. can use dx and dy to decide on which
-	var diff = this.dragHandler.compare(objNode, prevNode);
-	// edge cases include: Im first, im last, im alone
-	loggle(diff);
-	
-	// card order
-	// boundaries
-	// magic areas
-};
 
 
 var demoLoad =  function () {
