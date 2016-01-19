@@ -17,25 +17,26 @@ var loadSVG = function(url, d3dest, callback) {
 		   ); 
 };
 
+var idFilter = function () {
+	return this.id && this.id.length > 0;
+}
+
 var getGroupsWithIds = function(id) {
 	return d3.select("#" + id + " svg")
-		.selectAll("g").filter(function(d, i) {
-								   return this.id.length > 0;
-							   });
+		.selectAll("g").filter(idFilter);
 	return arr;
 };
 
-var inferDataArray = function(d3arr) {
+var inferDataArray = function(d3selection) {
 	var arr=[];
-	for (var i = 0; i < d3arr.length; i += 1)
-	{
-		var entry = {};
-		var el = d3.select(d3arr[i]);
-		entry.id = el.attr(id);
-		entry.node = el.node();
-		entry.initialBounds = el.node().getBoundingClientRect();
-		arr.push(entry);
-	}
+	d3selection.each(
+		function () {
+			arr.push({
+				"id": this.id,
+				"initialBoundingClientRect": this.getBoundingClientRect()
+			});
+		}
+	);
 	return arr;
 };
 

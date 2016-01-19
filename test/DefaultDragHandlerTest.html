@@ -18,6 +18,7 @@ var runTest = function() {
 	var out="";
 
 	var handler = new DefaultDragHandler();
+	
 	// Test 1
 	// xy priority
 	out += "Test 1<br/>";
@@ -32,7 +33,22 @@ var runTest = function() {
 	out += t1;
 
 	// Test 2
-	// borders
+	// initialization
+	try
+	{
+	
+		out += "<br/>"
+		handler.initialize(d3.select(arr[0][0]).node());
+		if (handler.valid(d3.select(arr[0][0]).node())) {
+			out += "Initialized and valid<br/>";
+		} else {
+			out += "Initialized, but INVALID<br/>";
+		}
+	} catch (e) {
+		alert(e); 
+	}
+		out += "";
+		
 
 	// Test 3
 	// collision
