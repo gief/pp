@@ -28,7 +28,7 @@ var runTest = function() {
 		var t1 = handler.compare(d3.select(arr[0][0]).node(), d3.select(arr[0][1]).node());
 
 	} catch (e) {
-		alert(e);
+		alert("hi"+e.name + ": " + e.message);
 	}
 	out += t1;
 
@@ -37,8 +37,12 @@ var runTest = function() {
 	try
 	{
 	
-		out += "<br/>"
-		handler.initialize(d3.select(arr[0][0]).node());
+		out += "<br/>";
+		var obj = d3.select(arr[0][0]).node();
+		var parentNode = obj.parentNode;
+		var children = parentNode.children;
+		
+		handler.initialize("#test svg svg", children);
 		if (handler.valid(d3.select(arr[0][0]).node())) {
 			out += "Initialized and valid<br/>";
 		} else {

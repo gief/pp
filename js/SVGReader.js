@@ -27,16 +27,16 @@ var getGroupsWithIds = function(id) {
 	return arr;
 };
 
-var inferDataArray = function(d3selection) {
+var inferDataArray = function(htmlCollection) {
 	var arr=[];
-	d3selection.each(
-		function () {
-			arr.push({
-				"id": this.id,
-				"initialBoundingClientRect": this.getBoundingClientRect()
+	for (var i = 0; i < htmlCollection.length; i+= 1) {
+		arr.push({
+				"id": htmlCollection[i].id,
+				"initialBoundingClientRect": htmlCollection[i].getBoundingClientRect()
 			});
-		}
-	);
+	}
+	
 	return arr;
 };
+
 
