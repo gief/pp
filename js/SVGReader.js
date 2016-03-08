@@ -39,4 +39,3 @@ var inferDataArray = function(htmlCollection) {
 	return arr;
 };
 
-

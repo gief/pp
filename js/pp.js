@@ -4,8 +4,11 @@
 var svg;
 var dh;
 var init = function(initObj) {
-	svg = d3.select("#printandplay svg");
-	dh = initObj.dragHandler;
+	var sel = "#printandplay svg";
+	svg = d3.select(sel);
+	if (!initObj) return;
+	dh = initObj["dragHandler"];
+	dh.initialize(sel + " svg", d3.select(sel + " svg").node().children);
 };
 var loggleX =0;
 var loggle = function(str) {

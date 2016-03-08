@@ -2,8 +2,12 @@
   <head>
 	<title>Print & Play</title>
     <link href="../css/styles.css" rel="stylesheet">
+    <!--
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.min.js"></script>
+	-->
+    	<script src="../lib/d3.min.js"></script>
+    	<script src="../lib/angular.min.js"></script>
 	<script src="../js/SVGReader.js"></script>
 	<script src="../js/DefaultDragHandler.js"></script>
   </head>
@@ -64,6 +68,7 @@ var runTest = function() {
 };
 
 var testSVG = "https://rawgit.com/gief/cardboard/master/assets/plastic%20playing%20cards/Cards-Inkscape.svg";
+//testSVG = "test.svg"
 loadSVG(testSVG, d3.select("#test svg"), runTest);
 
 </script>

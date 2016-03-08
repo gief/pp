@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<title>Print & Play</title>
+    <link href="css/styles.css" rel="stylesheet">
+    	<script src="lib/d3.min.js"></script>
+    	<script src="lib/angular.min.js"></script>
+	<script src="js/SVGReader.js"></script>
+	<script src="js/SVGTransformer.js"></script>
+	<script src="js/DefaultDragHandler.js"></script>
+	<script src="js/pp.js"></script>
+	<script src="js/main.js"></script>
+  </head>
+  <body>
+	<div class="pp" id="printandplay">
+	  <svg>
+<svg>
+	<g id="cardAC" >
+    <rect style="fill:#000080" width="97.14286" height="68.571426" x="120" y="166.6479" inkscape:label="#rect298" />
+       </g>
+	<g id="cardAC" >
+    <rect style="fill:#550000" id="cardAD" width="120" height="102.85714" x="97.14286" y="343.79074" inkscape:label="#rect2987" />
+       </g>
+	<g id="cardAC" >
+    <rect style="fill:#ffaaaa" id="cardAS" width="105.71429" height="80" x="2.85714" y="00.93359" inkscape:label="#rect2989" />
+       </g>
+	  </svg>
+	  </svg>
+	</div>
+	<div class="sideright" ng-app="ppApp" ng-controller="srcReader">
+	  <div class="editor" id="editor">
+		<div>
+		  <textarea type="textarea" ng-model="source"></textarea>
+		  {{source}}
+		  {{deck}}
+		  <br/>
+		  {{output}}
+		</div>
+		<div id="menu">
+		  <h2>Menu</h2>
+		  <a href="JavaScript:demoLoad()" id="demoLoad">Demo load</a><br/>
+		  <a href="JavaScript:demoDrag()" id="demoDrag">Demo drag</a><br/>
+		  <a href="#" id="menuLoad">Load</a><br/>
+		  <a href="#" id="menuPlay">Play</a><br/>
+		  <a href="#" id="menuShare">Share</a><br/>
+		  <a href="#" id="menuNew">New</a><br/>
+		  <a href="#" id="menuTidy">Tidy</a><br/>
+		  <br/>
+		  <br/>
+		  <a href="test/SVGTransformerTest.html">SVGTransform Test</a><br/>
+		  <br/>
+		  <br/>
+		  <a href="test/SVGReaderTest.html">SVGReader Test</a><br/>
+		  <br/>
+		  <br/>
+		  <a href="test/DefaultDragHandlerTest.html">DefaultDragHandler Test</a><br/>
+		  <br/>
+		  <br/>
+		</div>
+	  </div>
+	</div>
+  </body>
+</html>		

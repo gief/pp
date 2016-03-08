@@ -25,24 +25,20 @@ var DefaultDragHandler = function(cfgObj) {
 				return false;
 			}
 		}
-		alert( children.length);
 		return true;
 	}
 
 	this.initialize = function(sel, nodes) {
+		console.log("nodes", nodes);
 		/* Initialize the document in preparations for dragHandler to function properly
 		 */
-		var data = inferDataArray(nodes);
-		var key = temp.key;
-		data.sort(this.objCompare);
-		d3.select(sel).data(data).enter()
-			.append("g")
-			.attr("id", function(d) {return "ppgenerated--"+d.id})
-			//.call(function( sel, d) {sel.append(d3.select("#"+d.id).node())});
-			
+		var data = inferDataArray(nodes); // TODO clean up the referals. SVGReader should be an object
+		d3.selectAll(sel + " > *")
+			.data(data).enter() // This associates the data with the element (see object.__data__). Note that it depends on the inferred data array to be in the proper order as the selected elements.  
+		d3.selectAll(sel + " > *").sort(this.dataCompare);
 	}
 
-	this.objCompare = function(a, b) {
+	this.dataCompare = function(a, b) {
 		if (a.initialBoundingClientRect.left == b.initialBoundingClientRect.left) return a.initialBoundingClientRect.top - b.initialBoundingClientRect.top;
 		else return a.initialBoundingClientRect.left - b.initialBoundingClientRect.left;
 	}
